@@ -1,0 +1,13 @@
+.DS_Store
+**/.DS_Store
+# macOS Finder metadata
+.AppleDouble
+.LSOverride
+
+# Windows thumbnail caches
+Thumbs.db
+ehthumbs.db
+
+# Optional editor/temp files
+*.swp
+*~
