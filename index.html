@@ -9,10 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
+    <script>
+      (function() {
+        var t = localStorage.getItem('theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
   </head>
 
   <body>
+    <button id="theme-toggle" title="Toggle light/dark mode"></button>
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
@@ -56,7 +62,7 @@
           <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
 
-    <tr bgcolor="white">
+    <tr class="paper-row">
       <td style="padding:16px;width:20%;vertical-align:middle">
         <div class="one">
           <img src='images/reforestree.png' width="160">
@@ -85,7 +91,7 @@
       </td>
     </tr>
 
-    <tr bgcolor="white">
+    <tr class="paper-row">
       <td style="padding:16px;width:20%;vertical-align:middle">
         <div class="one">
           <img src='images/review-paper.png' width="160">
@@ -109,7 +115,7 @@
     </tr>
 
 
-    <tr bgcolor="white">
+    <tr class="paper-row">
       <td style="padding:16px;width:20%;vertical-align:middle">
         <div class="one">
           <img src='images/aim.png' width="160">
@@ -152,7 +158,7 @@
            
             <tr>
               <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-						     <div class="colored-box" style="background-color: #fcb97d;">
+						     <div class="colored-box box-posters">
 								 <h2>Posters</h2>
 								 </div>
               </td>
@@ -168,7 +174,7 @@
 
             <tr>
               <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-						     <div class="colored-box" style="background-color: #aaba9e;">
+						     <div class="colored-box box-projects">
 								 <h2>Projects</h2>
 								 </div>
               </td>
@@ -182,7 +188,7 @@
 
             <tr>
               <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-						     <div class="colored-box" style="background-color: #c6b89e;">
+						     <div class="colored-box box-blogs">
 								 <h2>Blogs</h2>
 								 </div>
               </td>
@@ -197,7 +203,7 @@
            
             <tr>
               <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-						     <div class="colored-box" style="background-color: #edd892;">
+						     <div class="colored-box box-teaching">
 								 <h2>Teaching</h2>
 								 </div>
               </td>
@@ -221,5 +227,36 @@
         </td>
       </tr>
     </table>
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        var osDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function currentIsDark() {
+          var t = document.documentElement.getAttribute('data-theme');
+          if (t === 'dark') return true;
+          if (t === 'light') return false;
+          return osDark.matches;
+        }
+
+        function setTheme(dark) {
+          document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+          localStorage.setItem('theme', dark ? 'dark' : 'light');
+          btn.textContent = dark ? '☀' : '☾';
+        }
+
+        btn.textContent = currentIsDark() ? '☀' : '☾';
+
+        btn.addEventListener('click', function() {
+          setTheme(!currentIsDark());
+        });
+
+        osDark.addEventListener('change', function() {
+          if (!localStorage.getItem('theme')) {
+            btn.textContent = osDark.matches ? '☀' : '☾';
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
