@@ -140,3 +140,70 @@ span.highlight {
     display: inline-block;
     border-radius: 10px;
 }
+
+@media (prefers-color-scheme: dark) {
+  body, td, th, tr, p, a {
+    color: #d4d4d4;
+  }
+
+  body {
+    background-color: #1a1a1a;
+  }
+
+  a {
+    color: #7ab3e8;
+  }
+
+  a:focus,
+  a:hover {
+    color: #f0a848;
+  }
+
+  strong {
+    color: #e0e0e0;
+  }
+
+  h2 {
+    color: #e0e0e0;
+  }
+
+  /* Override inline bgcolor="white" on table rows */
+  tr[bgcolor="white"] {
+    background-color: #252525 !important;
+  }
+
+  table {
+    background-color: transparent;
+  }
+
+  span.highlight {
+    background-color: #3a3a1a;
+    color: #e8e8b0;
+  }
+
+  /* Muted/darkened versions of the pastel colored boxes */
+  .colored-box[style*="#fcb97d"] {
+    background-color: #7a4e20 !important;
+  }
+  .colored-box[style*="#aaba9e"] {
+    background-color: #3a5030 !important;
+  }
+  .colored-box[style*="#c6b89e"] {
+    background-color: #5a4a35 !important;
+  }
+  .colored-box[style*="#edd892"] {
+    background-color: #5a4e18 !important;
+  }
+
+  .colored-box {
+    color: #e0e0e0;
+  }
+
+  .name {
+    color: #f0f0f0;
+  }
+
+  .papertitle {
+    color: #e8e8e8;
+  }
+}
