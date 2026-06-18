@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Blog — Sulagna Saha</title>
+
+    <meta name="author" content="Sulagna Saha">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script>
+      (function() {
+        var t = localStorage.getItem('theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
+  </head>
+
+  <body>
+    <button id="theme-toggle" title="Toggle light/dark mode"></button>
+    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+
+          <nav class="site-nav">
+            <a href="index.html">About</a>
+            <span class="nav-sep">/</span>
+            <span class="nav-current">Blog</span>
+          </nav>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:16px;width:100%;vertical-align:middle">
+                <h2>Blog</h2>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+            <tr class="paper-row">
+              <td style="padding:16px 16px;width:100%;vertical-align:middle">
+                <a href="https://sulagna.hashnode.dev/toward-open-source-thru-outreachy" class="papertitle">Toward Open-Source thru Outreachy</a>
+                <p style="margin:6px 0 0;">Reflections on my journey into open-source through Outreachy — the process, the people, and what I learned.</p>
+              </td>
+            </tr>
+
+            <tr class="paper-row">
+              <td style="padding:16px 16px;width:100%;vertical-align:middle">
+                <a href="https://sulagna.hashnode.dev/behind-the-code-lessons-from-building-a-ruby-gem-library" class="papertitle">Behind the Code: Lessons from Building a Ruby Gem Library</a>
+                <p style="margin:6px 0 0;">What I learned building and publishing a Ruby gem — from design decisions to community feedback.</p>
+              </td>
+            </tr>
+
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:0px">
+                <br>
+                <p style="text-align:center;font-size:small;">
+                  Inspo and adapted from Jon Barron's <a href="https://github.com/jonbarron/jonbarron_website">source code</a>.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+
+        </td>
+      </tr>
+    </table>
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        var osDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function currentIsDark() {
+          var t = document.documentElement.getAttribute('data-theme');
+          if (t === 'dark') return true;
+          if (t === 'light') return false;
+          return osDark.matches;
+        }
+
+        function setTheme(dark) {
+          document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+          localStorage.setItem('theme', dark ? 'dark' : 'light');
+          btn.textContent = dark ? '☀' : '☾';
+        }
+
+        btn.textContent = currentIsDark() ? '☀' : '☾';
+
+        btn.addEventListener('click', function() {
+          setTheme(!currentIsDark());
+        });
+
+        osDark.addEventListener('change', function() {
+          if (!localStorage.getItem('theme')) {
+            btn.textContent = osDark.matches ? '☀' : '☾';
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

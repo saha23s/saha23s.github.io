@@ -212,6 +212,39 @@ span.highlight {
 .box-blogs    { background-color: var(--box-blogs); }
 .box-teaching { background-color: var(--box-teaching); }
 
+/* ── Site nav ── */
+.site-nav {
+  text-align: center;
+  padding: 18px 0 4px;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+.site-nav a {
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.5;
+}
+
+.site-nav a:hover {
+  opacity: 1;
+  color: var(--link-hover);
+}
+
+.site-nav .nav-current {
+  font-weight: 700;
+  opacity: 1;
+  color: var(--text);
+  cursor: default;
+  pointer-events: none;
+}
+
+.site-nav .nav-sep {
+  margin: 0 10px;
+  opacity: 0.3;
+  color: var(--text);
+}
+
 /* ── Theme toggle button ── */
 #theme-toggle {
   position: fixed;
